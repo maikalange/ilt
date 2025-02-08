@@ -15,6 +15,11 @@
             font-family: 'Euclid Circular A', sans-serif;
         }
 
+        @font-face {
+            font-family: "Euclid Circular A";
+            src: url("./fonts/Euclid\ Circular\ A\ Light.ttf") format("truetype");
+        }
+
         .container {
             max-width: 800px;
             margin: auto;
@@ -25,15 +30,13 @@
         }
 
         .result {
-            background: #00ed64;
-            color: #023430;
             margin-top: 15px;
             padding: 10px;
             border-left: 5px solid #ffffff;
         }
 
         h2 {
-            font-family: 'Value Serif', serif;
+            font-family: 'Euclid Circular A';
         }
 
         label {
@@ -50,30 +53,33 @@
             max-width: 150px;
         }
 
-        .table {
+        table {
             width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
+            margin-top: 15px;
+            background: #ffffff;
+            color: #023430;
+            border-radius: 5px;
         }
 
-        .table th, .table td {
+        th,
+        td {
             padding: 10px;
-            border: 1px solid #ffffff;
             text-align: left;
         }
 
-        .table th {
-            background-color: #00ed64;
-            color: #023430;
+        th {
+            background: #00684a;
+            color: #ffffff;
         }
 
-        .table tr:nth-child(even) {
-            background-color: #00684a;
+        tr:nth-child(even) {
+            background: #00ed64;
         }
 
-        .table tr:nth-child(odd) {
-            background-color: #004d38;
+        tr:nth-child(odd) {
+            background: #ffffff;
         }
+
         .documents {
             margin-top: 30px;
             padding: 20px;
@@ -98,15 +104,15 @@
 
         .document-list a:hover {
             text-decoration: underline;
-        }		
+        }
     </style>
 </head>
 
 <body>
     <div class="container mt-5 p-4 text-center">
-        <img src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg?auto=format%252Ccompress"
+        <img src="./images/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg"
             alt="MongoDB Logo" class="logo">
-        <h2 class="mb-4">ILT Learning Path Finder</h2>
+        <h2 class="mb-4">MongoDB ILT Path Finder</h2>
 
         <div class="mb-3">
             <label for="role" class="form-label">Select role:</label>
@@ -122,116 +128,84 @@
             </select>
         </div>
 
-        <div class="result border p-3">
-            <table class="table" id="output">
-                <thead>
-                    <tr>
-                        <th>Course Code</th>
-                        <th>Course Title</th>
-                        <th>Learning Path</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="3" class="text-center">Select role and level to see available courses.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-		        <div class="documents">
+        <div id="output"></div>
+
+        <div class="documents">
             <h3>Related Documents</h3>
             <ul class="document-list">
-                <li><a target="_blank" href="MongoDB Developer Training Program Datasheet _ (Updated May 2024).pdf">MongoDB Developer Training Program Datasheet</a></li>
-				<li><a target="_blank" href="MongoDB Operations Training Program Datasheet _ 2021 (Updated May 2024).pdf">MongoDB Operations Training Program Datasheet</a></li>				
-                <li><a target="_blank" href="MongoDB ILT Precision Learning Program - Datasheet - 2024.pdf">MongoDB ILT Precision Learning Program Datasheet</a></li>                
-                <li><a target="_blank" href="MongoDB Instructor-led Training_ Skill Scanner Datasheet.pdf">MongoDB Instructor-led Training_ Skill Scanner Datasheet .pdf</a></li>
-				<li><a target="_blank" href="MongoDB ILT Subscription Datasheet.pdf">MongoDB ILT Subscription Datasheet</a></li>                
+                <li><a target="_blank" href="./docs/MongoDB_Developer_Training_Program_Datasheet.pdf">MongoDB Developer
+                        Training Program Datasheet</a></li>
+                <li><a target="_blank" href="./docs/MongoDB_Operations_Training_Program_Datasheet.pdf">MongoDB
+                        Operations Training Program Datasheet</a></li>
+                <li><a target="_blank" href="./docs/MongoDB_ILT_Precision_Learning_Program_Datasheet.pdf">MongoDB ILT
+                        Precision Learning Program Datasheet</a></li>
+                <li><a target="_blank"
+                        href="./docs/MongoDB_Instructor_Led_Training_ Skill_Scanner_Datasheet.pdf">MongoDB
+                        Instructor-led Training Skill Scanner Datasheet</a></li>
+                <li><a target="_blank" href="./docs/MongoDB_ILT_Subscription_Datasheet.pdf">MongoDB ILT Subscription
+                        Datasheet</a></li>
             </ul>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-		const courses = [
-            { role: "Developer", level: "Foundation", code: "MDB100", title: "MongoDB Database and Security [CRUD/Authz/Authn]", path: "MDB100 → MDB200 → MDB300" },
-            { role: "Developer", level: "Foundation", code: "MDB200", title: "MongoDB Optimization and Performance [Indexes/Metrics/Monitoring/Logs]", path: "MDB100 → MDB200 → MDB300" },
-            { role: "Developer", level: "Foundation", code: "MDB300", title: "MongoDB Production Readiness [Replication/Sharding/Backups]", path: "MDB100 → MDB200 → MDB300" },
-            { role: "Developer", level: "Foundation", code: "DEV400", title: "MongoDB Developer Extension [Aggregations/Time Series/Schema Design/Further Arrays]", path: "MDB100 → MDB200 → MDB300 → DEV400" },
-            { role: "Developer", level: "Foundation", code: "DS110", title: "Atlas Search and Vector Search", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Foundation", code: "DS120", title: "Atlas Data Federation", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Foundation", code: "DS130", title: "Client-side Field Level Encryption(CSFLE) Workshop", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Advanced", code: "DA610", title: "Advanced Queries and Data Processing", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Advanced", code: "DA620", title: "Languages Drivers Web Services", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Advanced", code: "DA630", title: "Distributed Systems and Transactions", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Advanced", code: "DA640", title: "Application Optimisation", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Advanced", code: "DA650", title: "Code Evolution Scale and Workflow", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Developer", level: "Advanced", code: "DA660", title: "AI and Vector Search", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Operations", level: "Advanced", code: "OA610", title: "Bench Marking and Capacity Planning", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Operations", level: "Advanced", code: "OA620", title: "Operations Manager Sizing Installation and Configuration", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Operations", level: "Advanced", code: "OA640", title: "Atlas Security", path: "This standalone course requires a solid MongoDB foundation." },
-            { role: "Other", level: "Other", code: "Other", title: "Other", path: "Precision Learning Programme offers bespoke paths. Contact training@mongodb.com for details." },
-            { role: "Operations", level: "Foundation", code: "MDB100", title: "MongoDB Database and Security [CRUD/Authz/Authn]", path: "MDB100 → MDB200 → MDB300" },
-            { role: "Operations", level: "Foundation", code: "MDB200", title: "MongoDB Optimization and Performance [Indexes/Metrics/Monitoring/Logs]", path: "MDB100 → MDB200 → MDB300" },
-            { role: "Operations", level: "Foundation", code: "MDB300", title: "MongoDB Production Readiness [Replication/Sharding/Backups]", path: "MDB100 → MDB200 → MDB300" },
-            { role: "Operations", level: "Foundation", code: "OFA400", title: "Atlas Admin", path: "MDB100 → MDB200 → MDB300 → OFA400 → OFA500" },
-            { role: "Operations", level: "Foundation", code: "OFA500", title: "Atlas Admin API", path: "MDB100 → MDB200 → MDB300 → OFA400 → OFA500" },
-            { role: "Operations", level: "Foundation", code: "OFS400", title: "Operations Manager Admin", path: "MDB100 → MDB200 → MDB300 → OFS400" },
-            { role: "Operations", level: "Foundation", code: "OFS500", title: "Operations Manager API", path: "MDB100 → MDB200 → MDB300 → OFS400 → OFS500" },
+        async function loadCourses() {
+            const response = await fetch('courses.json');
+            const courses = await response.json();
 
-        ];
+            const roleSelect = document.getElementById('role');
+            const levelSelect = document.getElementById('level');
+            const outputDiv = document.getElementById('output');
 
-        const roleSelect = document.getElementById('role');
-        const levelSelect = document.getElementById('level');
-        const outputTable = document.getElementById('output').querySelector('tbody');
-
-        const uniqueRoles = [...new Set(courses.map(course => course.role))];
-        uniqueRoles.forEach(role => {
-            const option = document.createElement('option');
-            option.value = role;
-            option.textContent = role;
-            roleSelect.appendChild(option);
-        });
-
-        const uniqueLevels = [...new Set(courses.map(course => course.level))];
-        uniqueLevels.forEach(level => {
-            const option = document.createElement('option');
-            option.value = level;
-            option.textContent = level;
-            levelSelect.appendChild(option);
-        });
-
-        function filterCourses() {
-            const selectedRole = roleSelect.value;
-            const selectedLevel = levelSelect.value;
-
-            outputTable.innerHTML = "";
-
-            if (!selectedRole || !selectedLevel) {
-                outputTable.innerHTML = '<tr><td colspan="3" class="text-center">Select role and level to see available courses.</td></tr>';
-                return;
-            }
-
-            const filteredCourses = courses.filter(course =>
-                course.role === selectedRole && course.level === selectedLevel
-            );
-
-            if (filteredCourses.length === 0) {
-                outputTable.innerHTML = '<tr><td colspan="3" class="text-center">No courses available for this selection. Please contact training@mongodb.com for assistance.</td></tr>';
-                return;
-            }
-
-            filteredCourses.forEach(course => {
-                const row = `<tr>
-                    <td>${course.code}</td>
-                    <td>${course.title}</td>
-                    <td>${course.path}</td>
-                </tr>`;
-                outputTable.innerHTML += row;
+            const uniqueRoles = [...new Set(courses.map(course => course.role))];
+            uniqueRoles.forEach(role => {
+                const option = document.createElement('option');
+                option.value = role;
+                option.textContent = role;
+                roleSelect.appendChild(option);
             });
+
+            const uniqueLevels = [...new Set(courses.map(course => course.level))];
+            uniqueLevels.forEach(level => {
+                const option = document.createElement('option');
+                option.value = level;
+                option.textContent = level;
+                levelSelect.appendChild(option);
+            });
+
+            function filterCourses() {
+                const selectedRole = roleSelect.value;
+                const selectedLevel = levelSelect.value;
+
+                if (!selectedRole || !selectedLevel) {
+                    outputDiv.innerHTML = "<p>Select role and level to see available courses.</p>";
+                    return;
+                }
+
+                const filteredCourses = courses.filter(course =>
+                    course.role === selectedRole && course.level === selectedLevel
+                );
+
+                if (filteredCourses.length === 0) {
+                    outputDiv.innerHTML = "<p>No courses available for this selection. Please contact training@mongodb.com for assistance.</p>";
+                    return;
+                }
+
+                let tableHTML = '<table><thead><tr><th>Code</th><th>Title</th><th>Path</th></tr></thead><tbody>';
+                filteredCourses.forEach(course => {
+                    tableHTML += `<tr><td>${course.code}</td><td>${course.title}</td><td>${course.path}</td></tr>`;
+                });
+                tableHTML += '</tbody></table>';
+
+                outputDiv.innerHTML = tableHTML;
+            }
+
+            roleSelect.addEventListener('change', filterCourses);
+            levelSelect.addEventListener('change', filterCourses);
         }
 
-        roleSelect.addEventListener('change', filterCourses);
-        levelSelect.addEventListener('change', filterCourses);
+        loadCourses();
     </script>
 </body>
 

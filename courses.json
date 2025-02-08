@@ -1,0 +1,27 @@
+[
+    { "role": "Developer", "level": "Foundation", "code": "MDB100", "title": "MongoDB Database and Security", "path": "MDB100 → MDB200 → MDB300" },
+    { "role": "Developer", "level": "Foundation", "code": "MDB200", "title": "MongoDB Optimization and Performance", "path": "MDB100 → MDB200 → MDB300" },
+    { "role": "Developer", "level": "Foundation", "code": "MDB300", "title": "MongoDB Production Readiness", "path": "MDB100 → MDB200 → MDB300" },
+    { "role": "Developer", "level": "Foundation", "code": "DEV400", "title": "MongoDB Developer Extension", "path": "MDB100 → MDB200 → MDB300 → DEV400" },
+    { "role": "Developer", "level": "Foundation", "code": "DS110", "title": "Atlas Search and Vector Search", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Foundation", "code": "DS120", "title": "Atlas Data Federation", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Foundation", "code": "DS130", "title": "Client-side Field level Encryption(CSFLE) Workshop", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Advanced", "code": "DA610", "title": "Advanced Queries and Data Processing", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Advanced", "code": "DA620", "title": "Languages Drivers Web Services", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Advanced", "code": "DA630", "title": "Distributed Systems and Transactions", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Advanced", "code": "DA640", "title": "Application Optimisation", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Advanced", "code": "DA650", "title": "Code Evolution Scale and Workflow", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Developer", "level": "Advanced", "code": "DA660", "title": "AI and Vector Search", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Operations", "level": "Advanced", "code": "OA610", "title": "Bench Marking and Capacity Planning", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Operations", "level": "Advanced", "code": "OA620", "title": "Operations Manager Sizing Installation and Configuration", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Operations", "level": "Advanced", "code": "OA640", "title": "Atlas Security", "path": "This standalone course requires a solid MongoDB foundation." },
+    { "role": "Other", "level": "Other", "code": "Other", "title": "Other", "path": "Precision Learning Programme offers bespoke paths. Contact training@mongodb.com for details." },
+    { "role": "Operations", "level": "Foundation", "code": "MDB100", "title": "MongoDB Database and Security", "path": "MDB100 → MDB200 → MDB300" },
+    { "role": "Operations", "level": "Foundation", "code": "MDB200", "title": "MongoDB Optimization and Performance", "path": "MDB100 → MDB200 → MDB300" },
+    { "role": "Operations", "level": "Foundation", "code": "MDB300", "title": "MongoDB Production Readiness", "path": "MDB100 → MDB200 → MDB300" },
+    { "role": "Operations", "level": "Foundation", "code": "OFA400", "title": "Atlas Admin", "path": "MDB100 → MDB200 → MDB300 → OFA400 → OFA500" },
+    { "role": "Operations", "level": "Foundation", "code": "OFA500", "title": "Atlas Admin API", "path": "MDB100 → MDB200 → MDB300 → OFA400 → OFA500" },
+    { "role": "Operations", "level": "Foundation", "code": "OFS400", "title": "Operations Manager Admin", "path": "MDB100 → MDB200 → MDB300 → OFS400" },
+    { "role": "Operations", "level": "Foundation", "code": "OFS500", "title": "Operations Manager API", "path": "MDB100 → MDB200 → MDB300 → OFS400 → OFS500" }
+
+]
